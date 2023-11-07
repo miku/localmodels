@@ -39,7 +39,57 @@ Go is a nice infra language, what projects exist for model infra?
 
 ## OLLAMA
 
-...
+From zero to chat in about 5 minutes. As of 11/2023 hosting 36+ models, a
+docker-like model.
+
+```
+$ git clone git@github.com:jmorganca/ollama.git
+$ cd ollama
+$ go generate ./... && go build . # cp ollama ...
+```
+
+Follows a client server model, like docker.
+
+```
+$ ollama serve
+```
+
+Once it is running, we can pull models.
+
+```
+$ ollama pull llama2                                                                                                                                                                                                         [33/33]
+pulling manifest
+pulling 22f7f8ef5f4c... 100% |..
+pulling 8c17c2ebb0ea... 100% |..
+pulling 7c23fb36d801... 100% |..
+pulling 2e0493f67d0c... 100% |..
+pulling 2759286baa87... 100% |..
+pulling 5407e3188df9... 100% |..
+verifying sha256 digest
+writing manifest
+removing any unused layers
+success
+```
+
+### Some examples
+
+```
+$ ollama run zephyr
+>>> please complete: {"author": "Turing, Alan", "title" ... }
+
+{
+  "author": "Alan Turing",
+  "title": "On Computable Numbers, With an Application to the Entscheidungsproblem",
+  "publication_date": "1936-07-15",
+  "journal": "Proceedings of the London Mathematical Society. Series 2",
+  "volume": "42",
+  "pages": "230–265"
+}
+```
+
+Formatting mine.
+
+
 
 
 ## Credits
