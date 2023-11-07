@@ -15,7 +15,7 @@ From 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](htt
 
 ![](static/default.jpg)
 
-> What I cannot build, I do not understand.
+> What I cannot create, I do not understand.
 
 Open models not binary:
 
@@ -30,6 +30,16 @@ Open models not binary:
 * downloadable access and
 * fully open.
 
+Go is a nice infra language, what projects exist for model infra?
+
+## POLL
+
+* have you ran a local LLM, yes or no?
+* if so, which models?
+
+## OLLAMA
+
+...
 
 
 ## Credits
