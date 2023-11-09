@@ -4,16 +4,16 @@
 
 Short talk about running local models, using Go tools.
 
-## Motivation
+## Anno 73 TT
 
 I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
-and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf).
+and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
 
 From 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
 
 > This **lack of robustness** signals a lack of **reliability** in the real world.
 
-![](static/default.jpg)
+![](static/default-30.jpg)
 
 > What I cannot create, I do not understand.
 
