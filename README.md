@@ -9,7 +9,7 @@ Short talk about running local models, using Go tools.
 I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
 and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
 
-From 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
+From [Nature](https://www.nature.com/), 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
 
 > This **lack of robustness** signals a lack of **reliability** in the real world.
 
@@ -32,6 +32,8 @@ Open models not binary:
 
 Go is a nice infra language, what projects exist for model infra?
 
+* going to look at a tool, from the *outside* and a bit from the *inside*
+
 ## POLL
 
 * have you ran a local LLM, yes or no?
@@ -39,7 +41,14 @@ Go is a nice infra language, what projects exist for model infra?
 
 ## OLLAMA
 
-From zero to chat in about 5 minutes. As of 11/2023 hosting 36+ models, a
+* very inspired by docker
+* docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
+* very clean user experience (that many projects lack)
+* built on [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
+
+### Time-to-chat
+
+From zero to chat in about 5 minutes, on a [power-efficient CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html). As of 11/2023 hosting 36+ models, a
 docker-like model.
 
 ```
@@ -89,8 +98,14 @@ $ ollama run zephyr
 
 Formatting mine.
 
+### More
 
+The whole prompt engineering thing is kind of mysterious to me. Do you get better output by showing emotions?
 
+* [Large Language Models Understand and Can Be Enhanced by Emotional Stimuli](https://arxiv.org/pdf/2307.11760.pdf) -- "EmotionPrompt"
+
+> To this end, we first conduct automatic experiments on 45 tasks using various
+> LLMs, including Flan-T5-Large, Vicuna, Llama 2, BLOOM, ChatGPT, and GPT-4.
 
 ## Credits
 
