@@ -4,7 +4,7 @@
 
 Short talk about running local models, using Go tools.
 
-## Anno 73 TT
+## 73 Anno TT
 
 I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
 and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
