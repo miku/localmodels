@@ -107,6 +107,18 @@ The whole prompt engineering thing is kind of mysterious to me. Do you get bette
 > To this end, we first conduct automatic experiments on 45 tasks using various
 > LLMs, including Flan-T5-Large, Vicuna, Llama 2, BLOOM, ChatGPT, and GPT-4.
 
+
+### TODO
+
+* [ ] define a couple of tasks and run them in batch against the API
+* [ ] create custom prompts, example tasks
+
+Some specific prompts may be:
+
+* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
+
+
+
 ## Credits
 
 * [Richard Feynman's blackboard at time of his death](https://digital.archives.caltech.edu/collections/Photographs/1.10-29/) (1988)
