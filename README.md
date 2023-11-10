@@ -100,7 +100,7 @@ Formatting mine.
 
 ### More
 
-The whole prompt engineering thing is kind of mysterious to me. Do you get better output by showing emotions?
+The whole [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) thing is kind of mysterious to me. Do you get better output by showing emotions?
 
 * [Large Language Models Understand and Can Be Enhanced by Emotional Stimuli](https://arxiv.org/pdf/2307.11760.pdf) -- "EmotionPrompt"
 
