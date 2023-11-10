@@ -41,10 +41,11 @@ Go is a nice infra language, what projects exist for model infra?
 
 ## OLLAMA
 
-* very inspired by docker
+* first appeared in [07/2023](http://web.archive.org/web/20230720133902/https://ollama.ai/) (~18 weeks ago)
+* very inspired by docker, not images, but models
+* built on [llama](https://ai.meta.com/llama/) (meta), [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
 * docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
 * very clean user experience (that many projects lack)
-* built on [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
 
 ### Time-to-chat
 
