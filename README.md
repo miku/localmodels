@@ -41,15 +41,17 @@ Go is a nice infra language, what projects exist for model infra?
 
 ## OLLAMA
 
-* very inspired by docker
+* first appeared in [07/2023](http://web.archive.org/web/20230720133902/https://ollama.ai/) (~18 weeks ago)
+* very inspired by docker, not images, but models
+* built on [llama](https://ai.meta.com/llama/) (meta), [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
 * docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
 * very clean user experience (that many projects lack)
-* built on [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
 
 ### Time-to-chat
 
-From zero to chat in about 5 minutes, on a [power-efficient CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html). As of 11/2023 hosting 36+ models, a
-docker-like model.
+From zero to chat in about 5 minutes, on a [power-efficient
+CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html).
+Started w/ 2 models, as of 11/2023 hosting 36+ models, a docker-like model.
 
 ```
 $ git clone git@github.com:jmorganca/ollama.git
@@ -66,7 +68,7 @@ $ ollama serve
 Once it is running, we can pull models.
 
 ```
-$ ollama pull llama2                                                                                                                                                                                                         [33/33]
+$ ollama pull llama2
 pulling manifest
 pulling 22f7f8ef5f4c... 100% |..
 pulling 8c17c2ebb0ea... 100% |..
@@ -100,7 +102,7 @@ Formatting mine.
 
 ### More
 
-The whole prompt engineering thing is kind of mysterious to me. Do you get better output by showing emotions?
+The whole [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) thing is kind of mysterious to me. Do you get better output by showing emotions?
 
 * [Large Language Models Understand and Can Be Enhanced by Emotional Stimuli](https://arxiv.org/pdf/2307.11760.pdf) -- "EmotionPrompt"
 
