@@ -49,8 +49,9 @@ Go is a nice infra language, what projects exist for model infra?
 
 ### Time-to-chat
 
-From zero to chat in about 5 minutes, on a [power-efficient CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html). As of 11/2023 hosting 36+ models, a
-docker-like model.
+From zero to chat in about 5 minutes, on a [power-efficient
+CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html).
+Started w/ 2 models, as of 11/2023 hosting 36+ models, a docker-like model.
 
 ```
 $ git clone git@github.com:jmorganca/ollama.git
@@ -67,7 +68,7 @@ $ ollama serve
 Once it is running, we can pull models.
 
 ```
-$ ollama pull llama2                                                                                                                                                                                                         [33/33]
+$ ollama pull llama2
 pulling manifest
 pulling 22f7f8ef5f4c... 100% |..
 pulling 8c17c2ebb0ea... 100% |..
