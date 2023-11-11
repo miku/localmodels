@@ -21,22 +21,33 @@
     content: |
       OLLAMA_MODELS={{ ollama_models }}
       OLLAMA_HOST={{ ollama_host }}
+- name: create model dir, if necessary
+  file:
+    path: "{{ ollama_models }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ ollama_user }}"
+    group: "{{ ollama_group }}"
 - name: create ollama systemd service file
   template:
     src: templates/systemd_service.conf
     dest: /lib/systemd/system/ollama.service
 - name: restart ollama
-  state: restared
-  daemon_reload: true
-  name: ollama
-- name: download some model files
-  shell: ollama pull "{{ item }}"
-  loop:
-    - codeup:latest
-    - everythinglm:13b-16k-fp16
-    - everythinglm:latest
-    - mistral:7b-instruct-fp16
-    - mistral:7b-text-fp16
-    - sqlcoder:15b-fp16
-    - sqlcoder:latest
-
+  systemd:
+    state: restarted
+    daemon_reload: true
+    name: ollama
+# - name: download some model files
+#   shell: ollama pull "{{ item }}"
+#   loop:
+#     - "codeup:latest"
+#     - "everythinglm:13b-16k-fp16"
+#     - "everythinglm:latest"
+#     - "llama2-uncensored:latest"
+#     - "mistral:7b-instruct-fp16"
+#     - "mistral:7b-text-fp16"
+#     - "orca-mini:70b-v3-fp16"
+#     - "orca-mini:latest"
+#     - "sqlcoder:15b-fp16"
+#     - "sqlcoder:latest"
+#     - "vicuna:latest"

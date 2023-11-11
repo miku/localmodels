@@ -120,6 +120,25 @@ Some specific prompts may be:
 * [ ] an instructor for a specific programming style (e.g. see elements of programming style)
 
 
+### Batch Mode
+
+```
+[GIN-debug] POST   /api/pull                 --> github.com/jmorganca/ollama/server.PullModelHandler (5 handlers)
+[GIN-debug] POST   /api/generate             --> github.com/jmorganca/ollama/server.GenerateHandler (5 handlers)
+[GIN-debug] POST   /api/embeddings           --> github.com/jmorganca/ollama/server.EmbeddingHandler (5 handlers)
+[GIN-debug] POST   /api/create               --> github.com/jmorganca/ollama/server.CreateModelHandler (5 handlers)
+[GIN-debug] POST   /api/push                 --> github.com/jmorganca/ollama/server.PushModelHandler (5 handlers)
+[GIN-debug] POST   /api/copy                 --> github.com/jmorganca/ollama/server.CopyModelHandler (5 handlers)
+[GIN-debug] DELETE /api/delete               --> github.com/jmorganca/ollama/server.DeleteModelHandler (5 handlers)
+[GIN-debug] POST   /api/show                 --> github.com/jmorganca/ollama/server.ShowModelHandler (5 handlers)
+[GIN-debug] GET    /                         --> github.com/jmorganca/ollama/server.Serve.func2 (5 handlers)
+[GIN-debug] GET    /api/tags                 --> github.com/jmorganca/ollama/server.ListModelsHandler (5 handlers)
+[GIN-debug] HEAD   /                         --> github.com/jmorganca/ollama/server.Serve.func2 (5 handlers)
+[GIN-debug] HEAD   /api/tags                 --> github.com/jmorganca/ollama/server.ListModelsHandler (5 handlers)
+```
+
+* `/api/generate/`
+
 
 ## Credits
 
