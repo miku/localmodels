@@ -1,0 +1,6 @@
+- name: install ollama
+  - get_url:
+    url: https://github.com/jmorganca/ollama/releases/download/v{{ ollama_version }}/ollama-linux-amd64
+    checksum: sha1:00ed3dc06b7df4db8d2c09ead8b33201331e5dbe
+    dest: /usr/local/bin/ollama
+

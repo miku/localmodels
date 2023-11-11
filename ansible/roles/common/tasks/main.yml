@@ -1,0 +1,57 @@
+# Assume Fedora
+- name: Install common packages
+  dnf:
+    state: present
+    name:
+    - bash-completion
+    - bc
+    - bind-utils # for nslookup, etc.
+    - btop
+    - bzip2
+    - cronie # https://stackoverflow.com/a/21802522/89391
+    - curl
+    - fd-find
+    - git
+    - glances
+    - golang
+    - htop
+    - iotop
+    - jq
+    - lftp
+    - logrotate
+    - lsof
+    - mariadb-server # for replace: https://mariadb.com/kb/en/replace-utility/
+    - moreutils
+    - multitail
+    - ncdu
+    - neofetch
+    - neovim
+    - netcat
+    - nvme-cli
+    - p7zip
+    - p7zip-plugins
+    - parallel
+    - pigz
+    - pv
+    - ranger
+    - rclone
+    - ripgrep
+    - rsync
+    - screen
+    - sqlite
+    - sysstat
+    - tar
+    - tmux
+    - tree
+    - unzip
+    - vim-enhanced
+    - wget
+    - z
+    - zstd
+- name: Increase histsize
+  copy:
+    dest: /etc/profile.d/histsize.sh
+    content: |
+      export HISTSIZE=1000000
+      export HISTFILESIZE=67108864
+
