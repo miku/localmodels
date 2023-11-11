@@ -1,6 +1,42 @@
+- name: Ensure group ollama exists
+  group:
+    name: '{{ ollama_group }}'
+    state: present
+- name: Create service worker
+  user:
+    name: '{{ ollama_user }}'
+    group: '{{ ollama_group }}'
+    shell: /bin/bash
+    create_home: true
+    umask: "0022"
 - name: install ollama
-  - get_url:
+  get_url:
     url: https://github.com/jmorganca/ollama/releases/download/v{{ ollama_version }}/ollama-linux-amd64
     checksum: sha1:00ed3dc06b7df4db8d2c09ead8b33201331e5dbe
     dest: /usr/local/bin/ollama
+    mode: 0755
+- name: set ollama environment variables
+  copy:
+    dest: /etc/profile.d/ollama.sh
+    content: |
+      OLLAMA_MODELS={{ ollama_models }}
+      OLLAMA_HOST={{ ollama_host }}
+- name: create ollama systemd service file
+  template:
+    src: templates/systemd_service.conf
+    dest: /lib/systemd/system/ollama.service
+- name: restart ollama
+  state: restared
+  daemon_reload: true
+  name: ollama
+- name: download some model files
+  shell: ollama pull "{{ item }}"
+  loop:
+    - codeup:latest
+    - everythinglm:13b-16k-fp16
+    - everythinglm:latest
+    - mistral:7b-instruct-fp16
+    - mistral:7b-text-fp16
+    - sqlcoder:15b-fp16
+    - sqlcoder:latest
 

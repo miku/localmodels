@@ -1,1 +1,5 @@
 ollama_version: 0.1.9
+ollama_user: ollama
+ollama_group: ollama
+ollama_models: /data/.ollama/models
+ollama_host: localhost:11434
