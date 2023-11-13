@@ -4,7 +4,26 @@
 
 Short talk about running local models, using Go tools.
 
+## Personal Timeline
+
+> "What a difference a week makes"
+
+* on 2022-11-30, [chatGPT](https://en.wikipedia.org/wiki/ChatGPT) is released
+* on 2022-12-12 (+2w), one week after tweet ID [1599971348717051904](https://twitter.com/alexandr_wang/status/1599971348717051904), we discuss the new role of "prompt engineer" in a CS class at [LU Leipzig](https://en.wikipedia.org/wiki/Lancaster_University_Leipzig)
+
+> I am going to assert that Riley is the first Staff Prompt Engineer hired *anywhere*.
+
+* on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 1-3 years timeline
+* on 2023-04-18 (+9w), we discuss C/GO and ggml (ai-on-the-edge) at [Leipzig Gophers #35](https://golangleipzig.space/posts/meetup-35-wrapup/)
+* on 2023-07-20 (+13w), ollama is released (two models), [HN](https://news.ycombinator.com/item?id=36802582)
+* on 2023-11-21 (+17w), today, 100s of models (TODO: understand GGUF spread)
+
 ## 73 Anno TT
+
+TODO: ML/DL is conceptually a black box, with simple parts and complex emergent
+behavious; it has been compared to thermodynamics, developed out of the steam
+engines with simple particles and laws leadning to complex, statistical,
+aggregate behaviour.
 
 I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
 and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
