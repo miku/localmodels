@@ -142,18 +142,18 @@ Some specific prompts may be:
 ### Batch Mode
 
 ```
-[GIN-debug] POST   /api/pull                 --> github.com/jmorganca/ollama/server.PullModelHandler (5 handlers)
-[GIN-debug] POST   /api/generate             --> github.com/jmorganca/ollama/server.GenerateHandler (5 handlers)
-[GIN-debug] POST   /api/embeddings           --> github.com/jmorganca/ollama/server.EmbeddingHandler (5 handlers)
-[GIN-debug] POST   /api/create               --> github.com/jmorganca/ollama/server.CreateModelHandler (5 handlers)
-[GIN-debug] POST   /api/push                 --> github.com/jmorganca/ollama/server.PushModelHandler (5 handlers)
-[GIN-debug] POST   /api/copy                 --> github.com/jmorganca/ollama/server.CopyModelHandler (5 handlers)
-[GIN-debug] DELETE /api/delete               --> github.com/jmorganca/ollama/server.DeleteModelHandler (5 handlers)
-[GIN-debug] POST   /api/show                 --> github.com/jmorganca/ollama/server.ShowModelHandler (5 handlers)
-[GIN-debug] GET    /                         --> github.com/jmorganca/ollama/server.Serve.func2 (5 handlers)
-[GIN-debug] GET    /api/tags                 --> github.com/jmorganca/ollama/server.ListModelsHandler (5 handlers)
-[GIN-debug] HEAD   /                         --> github.com/jmorganca/ollama/server.Serve.func2 (5 handlers)
-[GIN-debug] HEAD   /api/tags                 --> github.com/jmorganca/ollama/server.ListModelsHandler (5 handlers)
+[GIN-debug] POST   /api/pull       --> gith...m/jmo...ma/server.PullModelHandler (5 handlers)
+[GIN-debug] POST   /api/generate   --> gith...m/jmo...ma/server.GenerateHandler (5 handlers)
+[GIN-debug] POST   /api/embeddings --> gith...m/jmo...ma/server.EmbeddingHandler (5 handlers)
+[GIN-debug] POST   /api/create     --> gith...m/jmo...ma/server.CreateModelHandler (5 handlers)
+[GIN-debug] POST   /api/push       --> gith...m/jmo...ma/server.PushModelHandler (5 handlers)
+[GIN-debug] POST   /api/copy       --> gith...m/jmo...ma/server.CopyModelHandler (5 handlers)
+[GIN-debug] DELETE /api/delete     --> gith...m/jmo...ma/server.DeleteModelHandler (5 handlers)
+[GIN-debug] POST   /api/show       --> gith...m/jmo...ma/server.ShowModelHandler (5 handlers)
+[GIN-debug] GET    /               --> gith...m/jmo...ma/server.Serve.func2 (5 handlers)
+[GIN-debug] GET    /api/tags       --> gith...m/jmo...ma/server.ListModelsHandler (5 handlers)
+[GIN-debug] HEAD   /               --> gith...m/jmo...ma/server.Serve.func2 (5 handlers)
+[GIN-debug] HEAD   /api/tags       --> gith...m/jmo...ma/server.ListModelsHandler (5 handlers)
 ```
 
 * `/api/generate/`
