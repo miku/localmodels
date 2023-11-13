@@ -16,4 +16,4 @@ The model files are GGUF.
 -- https://github.com/nomic-ai/gpt4all/issues/1370
 
 * [https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/)
-
+* [https://news.ycombinator.com/item?id=37254180](https://news.ycombinator.com/item?id=37254180)
