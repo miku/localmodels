@@ -49,7 +49,14 @@ Open models not binary:
 * downloadable access and
 * fully open.
 
-Go is a nice infra language, what projects exist for model infra?
+A [prolific AI
+Researcher](https://scholar.google.de/citations?user=x04W_mMAAAAJ&hl=en) (with
+387K citations in the past 5 years) believes open source AI is ok for less
+capable models: [Open-Source vs. Closed-Source
+AI](https://www.youtube.com/watch?v=ZfYrJlfLs1Q)
+
+For today, let's focus on Go. Go is a nice infra language, what projects exist
+for model infra?
 
 * going to look at a tool, from the *outside* and a bit from the *inside*
 
