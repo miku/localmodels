@@ -139,7 +139,14 @@ The whole [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 ### TODO
 
 * [ ] define a couple of tasks and run them in batch against the API
+    * [ ] go programming haiku collection
+    * [ ] travel destination teaser; for loop over locations
+    * [ ] imaginary travel destination descriptions
 * [ ] create custom prompts, example tasks
+    * [ ] Modelfile
+    *
+* [ ] code assistant in nvim
+    * [ ] custom endpoint for https://github.com/huggingface/llm.nvim/tree/main
 
 Some specific prompts may be:
 
