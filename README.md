@@ -129,16 +129,6 @@ The whole [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 > LLMs, including Flan-T5-Large, Vicuna, Llama 2, BLOOM, ChatGPT, and GPT-4.
 
 
-### TODO
-
-* [ ] define a couple of tasks and run them in batch against the API
-* [ ] create custom prompts, example tasks
-
-Some specific prompts may be:
-
-* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
-
-
 ### Batch Mode
 
 ```
@@ -156,7 +146,38 @@ Some specific prompts may be:
 [GIN-debug] HEAD   /api/tags       --> gith...m/jmo...ma/server.ListModelsHandler (5 handlers)
 ```
 
-* `/api/generate/`
+Specifically `/api/generate/`
+
+### Constraints
+
+
+
+* [ ] define a couple of tasks and run them in batch against the API
+* [ ] create custom prompts, example tasks
+
+### Customizing models
+
+> weights, configuration, and data in a single package
+
+Using a Modelfile.
+
+Some specific prompts may be:
+
+* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
+
+
+## Task 1: "haiku"
+
+* generate a small volume of Go programming haiku
+
+## Task 2 "bibliography"
+
+* given unstructured strings, parse the to json
+
+## Task 3 "brochure"
+
+* brochure of travel destination descriptions
+
 
 
 ## Credits
