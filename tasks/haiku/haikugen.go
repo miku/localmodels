@@ -25,6 +25,7 @@ var (
 )
 
 func main() {
+	flag.Parse()
 	for _, model := range availableModels {
 		llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
 		if err != nil {
