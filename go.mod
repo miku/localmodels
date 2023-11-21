@@ -1,6 +1,6 @@
 module github.com/miku/localmodels
 
-go 1.21.4
+go 1.20
 
 require github.com/tmc/langchaingo v0.0.0-20231121041735-ce67575e497e
 
