@@ -18,17 +18,11 @@ Short talk about running local models, using Go tools.
 * on 2023-07-20 (+13w), ollama is released (two models), [HN](https://news.ycombinator.com/item?id=36802582)
 * on 2023-11-21 (+17w), today, 43 models (each with a couple of tags/versions)
 
-## 73 Anno TT
+## Confusion
 
-TODO: ML/DL is conceptually a black box, with simple parts and complex emergent
-behavious; it has been compared to thermodynamics, developed out of the steam
-engines with simple particles and laws leadning to complex, statistical,
-aggregate behaviour.
-
-I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
-and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
-
-From [Nature](https://www.nature.com/), 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
+Turing Test was proposed in 1950. From [Nature](https://www.nature.com/),
+2023-07-23: [Understanding ChatGPT is a bold new challenge for
+science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
 
 > This **lack of robustness** signals a lack of **reliability** in the real world.
 
@@ -71,7 +65,7 @@ for model infra?
 * very inspired by docker, not images, but models
 * built on [llama](https://ai.meta.com/llama/) (meta), [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
 * docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
-* very clean user experience (that many projects lack)
+* clean developer ux
 
 ### Time-to-chat
 
