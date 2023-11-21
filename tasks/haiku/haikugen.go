@@ -1,4 +1,6 @@
-// haikugen will try to generate one or more haikus
+// haikugen generates
+// JSON output for later eval
+// cannot parallelize
 //
 // data points:
 //
