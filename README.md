@@ -16,7 +16,7 @@ Short talk about running local models, using Go tools.
 * on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 1-3 years timeline
 * on 2023-04-18 (+9w), we discuss C/GO and ggml (ai-on-the-edge) at [Leipzig Gophers #35](https://golangleipzig.space/posts/meetup-35-wrapup/)
 * on 2023-07-20 (+13w), ollama is released (two models), [HN](https://news.ycombinator.com/item?id=36802582)
-* on 2023-11-21 (+17w), today, 100s of models (TODO: understand GGUF spread)
+* on 2023-11-21 (+17w), today, 43 models (each with a couple of tags/versions)
 
 ## 73 Anno TT
 
@@ -156,8 +156,7 @@ Specifically `/api/generate/`
 
 ### Constraints
 
-* [ ] define a couple of tasks and run them in batch against the API
-* [ ] create custom prompts, example tasks
+* possible to enforce JSON generation
 
 ### Customizing models
 
@@ -165,10 +164,25 @@ Specifically `/api/generate/`
 
 Using a Modelfile.
 
-Some specific prompts may be:
+```
+FROM llama2
+# sets the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 1
+# sets the context window size to 4096, this controls how many tokens the LLM can use as context to generate the next token
+PARAMETER num_ctx 4096
 
-* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
+# sets a custom system prompt to specify the behavior of the chat assistant
+SYSTEM You are Mario from super mario bros, acting as an assistant.
+```
 
+Freeze this as a custom package:
+
+```shell
+$ ollama create llama-mario -f custom/Modelfile.mario
+$ ollama run llama-mario
+```
+
+About 16 parameters to tweak: [Valid Parameters and Values](https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values)
 
 ## Task 1: "haiku"
 
@@ -177,28 +191,6 @@ Some specific prompts may be:
 ## Task 2 "bibliography"
 
 * given unstructured strings, parse the to json
-
-## Task 3 "brochure"
-
-* brochure of travel destination descriptions
-
-### TODO
-
-* [ ] define a couple of tasks and run them in batch against the API
-    * [ ] go programming haiku collection
-    * [ ] travel destination teaser; for loop over locations
-    * [ ] imaginary travel destination descriptions
-* [ ] create custom prompts, example tasks
-    * [ ] Modelfile
-    *
-* [ ] code assistant in nvim
-    * [ ] custom endpoint for https://github.com/huggingface/llm.nvim/tree/main
-
-Some specific prompts may be:
-
-* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
-
-
 
 ## Credits
 
