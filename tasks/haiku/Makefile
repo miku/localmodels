@@ -3,5 +3,5 @@ haikugen: haikugen.go
 
 .PHONY: clean
 clean:
-	rm -rf heikugen
+	rm -rf haikugen
 
