@@ -57,10 +57,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		ctx, cancelFunc := context.WithTimeout(context.Background(), 8*time.Second)
-		defer cancelFunc()
 		success := 0
 		for i := 0; i < *numSamples; i++ {
+			ctx, cancelFunc := context.WithTimeout(context.Background(), 8*time.Second)
+			defer cancelFunc()
 			started := time.Now()
 			completion, err := llm.Call(ctx, []schema.ChatMessage{
 				schema.SystemChatMessage{Content: *systemMessage},
@@ -69,7 +69,7 @@ func main() {
 				return nil
 			}))
 			if err != nil {
-				log.Printf("%d failed: %v, skipping", model, err)
+				log.Printf("%s failed: %v, skipping", model, err)
 				continue
 			}
 			success++
