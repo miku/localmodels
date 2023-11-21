@@ -22,7 +22,7 @@ even after 1T tokens.
 
 * Assume 1 token is 1 word: 1T words. EN wikipedia:
 [4.3B](https://en.wikipedia.org/wiki/Wikipedia:Size_of_Wikipedia) words. So
-about 233x english wikipedias.
+about 233x English Wikipedias.
 * Average novel has 80000 words, so 12.5M novels. DNB has [17.5M](https://www.dnb.de/DE/Sammlungen/Buecher/buecher_node.html) books.
 * Or software: [Software Heritage Archive](https://archive.softwareheritage.org/)
 has 17,276,493,075 files, assume some average SLOC of 200 and 5 tokens per line, we would have: 17,276,493,075,000 tokens (17T)
@@ -64,3 +64,18 @@ Usage for 21 days would be: $1.6M or $3.3M.
 Assuming we see some kind of Moore's Law play out; translate to "halving the
 price" every two years, in 2030 the gear could cost less than 5M and the
 training cost could be at $200-400K.
+
+## LLAMA2
+
+* 2T tokens (466 EN-Wikipedia); 7-70B parameters
+* paper: 2023-07-19
+
+> Llama 2, an updated version of Llama 1, trained on a new mix of publicly
+available data. We also increased the size of the pretraining corpus by 40%,
+doubled the context length of the model, and adopted grouped-query attention
+(Ainslie et al., 2023). We are releasing variants of Llama 2 with 7B, 13B, and
+70B parameters. We have also trained 34B variants, which we report on in this
+paper but are not releasing.
+
+Figure 5: "We observe that after pretraining on 2T Tokens, the models still did
+not show any sign of saturation."
