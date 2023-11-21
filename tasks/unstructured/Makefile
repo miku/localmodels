@@ -1,4 +1,4 @@
-TARGETS = curate
+TARGETS = unstructured
 
 .PHONY: all
 all: $(TARGETS)
