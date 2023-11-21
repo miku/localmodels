@@ -1,3 +1,9 @@
+// haikugen will try to generate one or more haikus
+//
+// data points:
+//
+// 6 models x 10 message each: 1m53.604s, generation took between 8 and 0.04
+// seconds, output between 849 and 2 chars (14, or 25%).
 package main
 
 import (
