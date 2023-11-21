@@ -1,7 +1,12 @@
-curate: curate.go
-	go build -o curate curate.go
+TARGETS = curate
+
+.PHONY: all
+all: $(TARGETS)
+
+%: %.go
+	go build -o $@ $^
 
 .PHONY: clean
 clean:
-	rm -rf curate
+	rm -rf $(TARGETS)
 

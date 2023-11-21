@@ -1,7 +1,12 @@
-haikugen: haikugen.go
-	go build -o haikugen haikugen.go
+TARGETS = haikugen
+
+.PHONY: all
+all: $(TARGETS)
+
+%: %.go
+	go build -o $@ $^
 
 .PHONY: clean
 clean:
-	rm -rf haikugen
+	rm -rf $(TARGETS)
 
