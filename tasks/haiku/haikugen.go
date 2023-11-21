@@ -32,12 +32,12 @@ var (
 )
 
 type ModelOutput struct {
-	Model         string        `json:"model"`
-	SystemMessage string        `json:"system"`
-	Prompt        string        `json:"prompt"`
-	Reply         string        `json:"reply"`
-	GeneratedAt   time.Time     `json:"t"`
-	Elapsed       time.Duration `json:"elapsed"`
+	Model         string    `json:"model"`
+	SystemMessage string    `json:"system"`
+	Prompt        string    `json:"prompt"`
+	Reply         string    `json:"reply"`
+	GeneratedAt   time.Time `json:"t"`
+	Elapsed       float64   `json:"elapsed_s"`
 }
 
 func main() {
@@ -66,7 +66,7 @@ func main() {
 				Prompt:        *chatMessage,
 				Reply:         completion.Content,
 				GeneratedAt:   time.Now(),
-				Elapsed:       time.Since(started),
+				Elapsed:       time.Since(started).Seconds(),
 			}
 			outputs = append(outputs, mo)
 		}
