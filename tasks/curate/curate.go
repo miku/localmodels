@@ -38,6 +38,7 @@ Powerful, efficient
 )
 
 func main() {
+	flag.Parse()
 	llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(*model)))
 	if err != nil {
 		log.Fatal(err)
