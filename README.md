@@ -56,8 +56,9 @@ for model infra?
 
 ## POLL
 
+* have you written a [markov chain based text generator](https://go.dev/doc/codewalk/markov/) in Go?
 * have you ran a local LLM, yes or no?
-* if so, which models?
+* if so, any particular model or tool?
 
 ## OLLAMA
 
@@ -181,6 +182,14 @@ About 16 parameters to tweak: [Valid Parameters and Values](https://github.com/j
 ## Task 1: "haiku"
 
 * generate a small volume of Go programming haiku
+
+```
+// haikugen generates
+// JSON output for later eval
+// cannot parallelize
+```
+
+* [haikugen.go](https://github.com/miku/localmodels/blob/main/tasks/haiku/haikugen.go)
 
 ## Task 2 "bibliography"
 
