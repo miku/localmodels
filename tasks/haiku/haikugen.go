@@ -29,13 +29,13 @@ var (
 		"mistral",
 		"mistrallite",
 		"orca-mini",
-		"wizard-vicuna-uncensored",
 		"zephyr",
 	}
 
 	defaultSystemMessage = `Task is to write a poem. Do not emit introductory text like 'Sure' and other chat. Just write the poem and stop.`
 	defaultChatMessage   = `write a haiku about the go programming language`
 
+	timeout       = flag.Duration("t", 8*time.Second, "timeout")
 	numSamples    = flag.Int("n", 1, "number of samples to generate")
 	systemMessage = flag.String("S", defaultSystemMessage, "system message to use")
 	chatMessage   = flag.String("C", defaultChatMessage, "default chat message")
@@ -60,7 +60,8 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		ctx := context.Background()
+		ctx, cancelFunc := context.WithTimeout(context.Background(), 8*time.Second)
+		defer cancelFunc()
 		for i := 0; i < *numSamples; i++ {
 			bar.Add(1)
 			started := time.Now()
@@ -71,7 +72,8 @@ func main() {
 				return nil
 			}))
 			if err != nil {
-				log.Fatal(err)
+				log.Printf("%d failed: %v, skipping", model, err)
+				continue
 			}
 			mo := ModelOutput{
 				Model:         model,
