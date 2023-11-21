@@ -2,12 +2,12 @@
 // JSON output for later eval
 // cannot parallelize
 //
-// data points:
+// data points (Xeon, PM: 2338/35224)
 //
 // 6 models x 10 message each: 1m53.604s, generation took between 8 and 0.04
 // seconds, output between 849 and 2 chars (14, or 25%). Around 3000% CPU usage.
 //
-// 6 models x 200 messages: 1200 replies in XXX
+// 6 models x 200 messages: 1200 replies in 34min or 0.58 haikus per second.
 package main
 
 import (

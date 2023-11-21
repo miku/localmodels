@@ -33,6 +33,8 @@ a 5-7-5 rule
 that's go's command line syntax
 write your own stories /
 your own rules for syntax.<|endoftext|>
+
+You should output either A or B.
 `
 
 	exampleMessage = `
