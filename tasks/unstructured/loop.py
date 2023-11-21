@@ -53,7 +53,10 @@ if __name__ == '__main__':
         generated = sio.getvalue()
         try:
             v = json.loads(generated)
-            print(json.dumps(v))
+            print(json.dumps({
+                "input": line,
+                "parsed": v,
+            }))
         except Exception as exc:
             stats["failed"] += 1
         else:
