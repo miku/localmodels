@@ -19,7 +19,7 @@ var (
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-Choose between two options A and B. You are presented with two options: A and B. Choose exactly one.
+Which of the two haikus looks better, A or B?
 `
 
 	exampleMessage = `
