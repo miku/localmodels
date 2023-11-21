@@ -62,6 +62,7 @@ func main() {
 		}
 		ctx := context.Background()
 		for i := 0; i < *numSamples; i++ {
+			bar.Add(1)
 			started := time.Now()
 			completion, err := llm.Call(ctx, []schema.ChatMessage{
 				schema.SystemChatMessage{Content: *systemMessage},
@@ -81,7 +82,6 @@ func main() {
 				Elapsed:       time.Since(started).Seconds(),
 			}
 			outputs = append(outputs, mo)
-			bar.Add(1)
 		}
 		enc := json.NewEncoder(os.Stdout)
 		for _, mo := range outputs {
