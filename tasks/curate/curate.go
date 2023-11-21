@@ -19,7 +19,7 @@ var (
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-We are in an exam situation.
+User gives you a task with options and you respond with one.
 `
 
 	exampleMessage = `
