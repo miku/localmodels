@@ -194,6 +194,7 @@ About 16 parameters to tweak: [Valid Parameters and Values](https://github.com/j
 ## Task 2 "bibliography"
 
 * given unstructured strings, parse the to json
+* [unstructured](https://github.com/miku/localmodels/tree/main/tasks/unstructured)
 
 ## Credits
 
