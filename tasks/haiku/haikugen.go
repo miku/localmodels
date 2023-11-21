@@ -12,6 +12,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"sync"
 	"time"
 
 	"github.com/tmc/langchaingo/llms"
@@ -48,35 +49,44 @@ type ModelOutput struct {
 
 func main() {
 	flag.Parse()
+	var mu sync.Mutex         // protects outputs
 	var outputs []ModelOutput // collect model output
+	var wg sync.WaitGroup
 	for _, model := range availableModels {
-		llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
-		if err != nil {
-			log.Fatal(err)
-		}
-		ctx := context.Background()
-		for i := 0; i < *numSamples; i++ {
-			started := time.Now()
-			completion, err := llm.Call(ctx, []schema.ChatMessage{
-				schema.SystemChatMessage{Content: *systemMessage},
-				schema.HumanChatMessage{Content: *chatMessage},
-			}, llms.WithStreamingFunc(func(ctx context.Context, chunk []byte) error {
-				return nil
-			}))
+		wg.Add(1)
+		go func(model string) {
+			defer wg.Done()
+			llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
 			if err != nil {
 				log.Fatal(err)
 			}
-			mo := ModelOutput{
-				Model:         model,
-				SystemMessage: *systemMessage,
-				Prompt:        *chatMessage,
-				Reply:         completion.Content,
-				GeneratedAt:   time.Now(),
-				Elapsed:       time.Since(started).Seconds(),
+			ctx := context.Background()
+			for i := 0; i < *numSamples; i++ {
+				started := time.Now()
+				completion, err := llm.Call(ctx, []schema.ChatMessage{
+					schema.SystemChatMessage{Content: *systemMessage},
+					schema.HumanChatMessage{Content: *chatMessage},
+				}, llms.WithStreamingFunc(func(ctx context.Context, chunk []byte) error {
+					return nil
+				}))
+				if err != nil {
+					log.Fatal(err)
+				}
+				mo := ModelOutput{
+					Model:         model,
+					SystemMessage: *systemMessage,
+					Prompt:        *chatMessage,
+					Reply:         completion.Content,
+					GeneratedAt:   time.Now(),
+					Elapsed:       time.Since(started).Seconds(),
+				}
+				mu.Lock()
+				outputs = append(outputs, mo)
+				mu.Unlock()
 			}
-			outputs = append(outputs, mo)
-		}
+		}(model)
 	}
+	wg.Wait()
 	enc := json.NewEncoder(os.Stdout)
 	for _, mo := range outputs {
 		if err := enc.Encode(mo); err != nil {
