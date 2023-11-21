@@ -16,6 +16,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/schollz/progressbar/v3"
 	"github.com/tmc/langchaingo/llms"
 	"github.com/tmc/langchaingo/llms/ollama"
 	"github.com/tmc/langchaingo/schema"
@@ -52,6 +53,8 @@ type ModelOutput struct {
 func main() {
 	flag.Parse()
 	var outputs []ModelOutput // collect model output
+	var totalRuns = len(availableModels) * *numSamples
+	bar := progressbar.NewOptions(totalRuns, progressbar.OptionSetWriter(os.Stderr))
 	for _, model := range availableModels {
 		llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
 		if err != nil {
@@ -78,6 +81,7 @@ func main() {
 				Elapsed:       time.Since(started).Seconds(),
 			}
 			outputs = append(outputs, mo)
+			bar.Add(1)
 		}
 		enc := json.NewEncoder(os.Stdout)
 		for _, mo := range outputs {
