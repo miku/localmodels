@@ -13,17 +13,13 @@ import (
 )
 
 var (
-	model         = flag.String("m", "falcon", "model name for ollama")
+	model         = flag.String("m", "zephyr", "model name for ollama")
 	timeout       = flag.Duration("t", 120*time.Second, "timeout")
 	systemMessage = flag.String("S", defaultSystemMessage, "system message to use")
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-You are a literary critic and your task is to choose a text between two
-options. You should choose the text that adhere more to formal requirements and
-exhibits a higher level of literary quality. You must choose one, but you can only emit A or B as an answer.
-
-You are presented with two options: A and B. Example input:
+Choose between two options A and B. You are presented with two options: A and B. Example input:
 
 A
 
