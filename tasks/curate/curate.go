@@ -19,7 +19,7 @@ var (
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-Which of the two haikus looks better, A or B?
+Of the following two haikus we need to choose one for a collection, which one should we pick?
 `
 
 	exampleMessage = `
