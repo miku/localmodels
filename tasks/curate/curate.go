@@ -19,22 +19,7 @@ var (
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-Choose between two options A and B. You are presented with two options: A and B. Example input:
-
-A
-
-Gathered in syntax,
-Go speaks with elegance and power,
-A new world to explore.
-
-B
-
-a 5-7-5 rule
-that's go's command line syntax
-write your own stories /
-your own rules for syntax.<|endoftext|>
-
-You should output either A or B.
+Choose between two options A and B. You are presented with two options: A and B. Choose exactly one.
 `
 
 	exampleMessage = `
