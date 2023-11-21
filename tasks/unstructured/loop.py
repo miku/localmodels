@@ -43,9 +43,9 @@ if __name__ == '__main__':
         sio = io.StringIO()
         # generate
         r = requests.post(args.api, json=params, stream=True)
-        for line in r.iter_lines():
-            if line:
-                resp = json.loads(line)
+        for rline in r.iter_lines():
+            if rline:
+                resp = json.loads(rline)
                 print(resp.get("response"), end="", file=sio)
                 if resp.get("done", False):
                     break
