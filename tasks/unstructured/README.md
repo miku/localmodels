@@ -39,3 +39,40 @@ Parsing 20 raw refs into json takes about
 $ time shuf -n 20 refs.json | python loop.py > refs_parsed.json
 ```
 
+Some example output:
+
+```json
+{
+  "input": "\"Bundesagentur für Arbeit (2007b): Dokumentation der vorgenommenen Änderungen und Korrekturen bei der Bereitstellung der SGB II-Kennzahlen für interregionale Vergleiche, Stand: 19.06.2007, Nürnberg.\"\n",
+  "parsed": {
+    "Source": "Bundesagentur für Arbeit (2007b)",
+    "DocumentTitle": "Dokumentation der vorgenommenen Änderungen und Korrekturen bei der Bereitstellung der SGB II-Kennzahlen für interregionale Vergleiche",
+    "Date": "19.06.2007",
+    "Location": "Nürnberg"
+  }
+}
+{
+  "input": "\"Taiwan So -tokufu gaiji-bu (1943), Kakyo -keizai jijyo -, Taiwan So -to -kufu gaiji cho -sa No. 133 [Economic situations of overseas Chinese, Foreign affairs survey No. 133. Office of the Governor-in-General, Taiwan]. Taipei: Ko -myo -sha sho -kai.\"\n",
+  "parsed": {
+    "title": "Taiwan So -tokufu gaiji-bu (1943)",
+    "publisher": "Office of the Governor-in-General, Taiwan",
+    "location": "Taipei: Ko -myo -sha sho -kai"
+  }
+}
+{
+  "input": "\"Bremer Kaufmann.\"\n",
+  "parsed": {
+    "first_name": "Bremer",
+    "last_name": "Kaufmann."
+  }
+}
+{
+  "input": "\"Friedan, Betty: Der Weiblichkeitswahn. Ein vehementer Protest gegen das Wunschbild von der Frau. Hamburg 1966\"\n",
+  "parsed": {
+    "author": "Betty Friedan",
+    "title": "Der Weiblichkeitswahn. Ein vehementer Protest gegen das Wunschbild von der Frau.",
+    "location": "Hamburg",
+    "year": 1966
+  }
+}
+```
