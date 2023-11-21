@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
 
@@ -19,6 +20,8 @@ var (
 		"falcon",
 		"orca-mini",
 	}
+	numSamples  = flag.Int("n", 1, "number of samples to generate")
+	outputStyle = flag.String("t", "", "output mode, leave empty for stdout, or json for structure")
 )
 
 func main() {
@@ -28,17 +31,17 @@ func main() {
 			log.Fatal(err)
 		}
 		ctx := context.Background()
-		log.Println(model)
-		completion, err := llm.Call(ctx, []schema.ChatMessage{
-			schema.SystemChatMessage{Content: "Task is to write a poem. Do not emit introductory text like 'Sure' and other chat. Just write the poem and stop."},
-			schema.HumanChatMessage{Content: "write a haiku about the go programming language"},
-		}, llms.WithStreamingFunc(func(ctx context.Context, chunk []byte) error {
-			return nil
-		}),
-		)
-		if err != nil {
-			log.Fatal(err)
+		for i := 0; i < *numSamples; i++ {
+			completion, err := llm.Call(ctx, []schema.ChatMessage{
+				schema.SystemChatMessage{Content: "Task is to write a poem. Do not emit introductory text like 'Sure' and other chat. Just write the poem and stop."},
+				schema.HumanChatMessage{Content: "write a haiku about the go programming language"},
+			}, llms.WithStreamingFunc(func(ctx context.Context, chunk []byte) error {
+				return nil
+			}))
+			if err != nil {
+				log.Fatal(err)
+			}
+			fmt.Println(completion.Content)
 		}
-		fmt.Println(completion.Content)
 	}
 }
