@@ -10,3 +10,4 @@ $ curl -sL 'localhost:11434/api/generate?format=json' -d '{"model": "mistral", "
 ```
 
 ![](622328.gif)
+
