@@ -16,7 +16,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/schollz/progressbar/v3"
 	"github.com/tmc/langchaingo/llms"
 	"github.com/tmc/langchaingo/llms/ollama"
 	"github.com/tmc/langchaingo/schema"
@@ -52,8 +51,6 @@ type ModelOutput struct {
 
 func main() {
 	flag.Parse()
-	totalRuns := len(availableModels) * *numSamples
-	bar := progressbar.NewOptions(totalRuns, progressbar.OptionSetWriter(os.Stderr))
 	enc := json.NewEncoder(os.Stdout)
 	for _, model := range availableModels {
 		llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
@@ -62,8 +59,8 @@ func main() {
 		}
 		ctx, cancelFunc := context.WithTimeout(context.Background(), 8*time.Second)
 		defer cancelFunc()
+		success := 0
 		for i := 0; i < *numSamples; i++ {
-			bar.Add(1)
 			started := time.Now()
 			completion, err := llm.Call(ctx, []schema.ChatMessage{
 				schema.SystemChatMessage{Content: *systemMessage},
@@ -75,6 +72,7 @@ func main() {
 				log.Printf("%d failed: %v, skipping", model, err)
 				continue
 			}
+			success++
 			mo := ModelOutput{
 				Model:         model,
 				SystemMessage: *systemMessage,
@@ -87,5 +85,6 @@ func main() {
 				log.Fatal(err)
 			}
 		}
+		log.Printf("%d/%d succeeded for %s", success, *numSamples, model)
 	}
 }
