@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	model         = flag.String("m", "zephyr", "model name for ollama")
+	model         = flag.String("m", "llama2", "model name for ollama")
 	timeout       = flag.Duration("t", 120*time.Second, "timeout")
 	systemMessage = flag.String("S", defaultSystemMessage, "system message to use")
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
