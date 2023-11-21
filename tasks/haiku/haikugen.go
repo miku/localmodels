@@ -52,9 +52,9 @@ type ModelOutput struct {
 
 func main() {
 	flag.Parse()
-	var outputs []ModelOutput // collect model output
-	var totalRuns = len(availableModels) * *numSamples
+	totalRuns := len(availableModels) * *numSamples
 	bar := progressbar.NewOptions(totalRuns, progressbar.OptionSetWriter(os.Stderr))
+	enc := json.NewEncoder(os.Stdout)
 	for _, model := range availableModels {
 		llm, err := ollama.NewChat(ollama.WithLLMOptions(ollama.WithModel(model)))
 		if err != nil {
@@ -81,10 +81,6 @@ func main() {
 				GeneratedAt:   time.Now(),
 				Elapsed:       time.Since(started).Seconds(),
 			}
-			outputs = append(outputs, mo)
-		}
-		enc := json.NewEncoder(os.Stdout)
-		for _, mo := range outputs {
 			if err := enc.Encode(mo); err != nil {
 				log.Fatal(err)
 			}
