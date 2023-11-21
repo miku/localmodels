@@ -19,21 +19,15 @@ var (
 	chatMessage   = flag.String("C", exampleMessage, "default chat message")
 
 	defaultSystemMessage = `
-Of the following two haikus we need to choose one for a collection, which one should we pick?
+We are in an exam situation.
 `
 
 	exampleMessage = `
-A
 
-To be true
-Go runs on any platform
-It’s portable and fast<|endoftext|>
+You are driving towards a traffic light which is switched to red, what do you do?
 
-B
-
-Go is a modern language
-Concise syntax, concurrency
-Powerful, efficient
+A: stop
+B: continue driving
 `
 )
 
