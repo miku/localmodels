@@ -1,6 +1,6 @@
-# Running local models
+# Testdriving OLLAMA
 
-> 2023-11-21, Martin Czygan <martin.czygan@gmail.com>, [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
+> 2023-11-21, Leipzig Gophers [Meetup #38](#), [Martin Czygan](https://www.linkedin.com/in/martin-czygan-58348842/), [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
 
 Short talk about running local models, using Go tools.
 
@@ -13,9 +13,9 @@ Short talk about running local models, using Go tools.
 
 > I am going to assert that Riley is the first Staff Prompt Engineer hired *anywhere*.
 
-* on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 1-3 years timeline
+* on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 2-5 years timeline
 * on 2023-04-18 (+9w), we discuss C/GO and ggml (ai-on-the-edge) at [Leipzig Gophers #35](https://golangleipzig.space/posts/meetup-35-wrapup/)
-* on 2023-07-20 (+13w), ollama is released (two models), [HN](https://news.ycombinator.com/item?id=36802582)
+* on 2023-07-20 (+13w), [ollama](https://ollama.ai) is released (with two models), [HN](https://news.ycombinator.com/item?id=36802582)
 * on 2023-11-21 (+17w), today, 100s of models (TODO: understand GGUF spread)
 
 ## 73 Anno TT
