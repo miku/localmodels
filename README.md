@@ -16,19 +16,13 @@ Short talk about running local models, using Go tools.
 * on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 2-5 years timeline
 * on 2023-04-18 (+9w), we discuss C/GO and ggml (ai-on-the-edge) at [Leipzig Gophers #35](https://golangleipzig.space/posts/meetup-35-wrapup/)
 * on 2023-07-20 (+13w), [ollama](https://ollama.ai) is released (with two models), [HN](https://news.ycombinator.com/item?id=36802582)
-* on 2023-11-21 (+17w), today, 100s of models (TODO: understand GGUF spread)
+* on 2023-11-21 (+17w), today, 43 models (each with a couple of tags/versions)
 
-## 73 Anno TT
+## Confusion
 
-TODO: ML/DL is conceptually a black box, with simple parts and complex emergent
-behavious; it has been compared to thermodynamics, developed out of the steam
-engines with simple particles and laws leadning to complex, statistical,
-aggregate behaviour.
-
-I love technology, still not ❤️  black boxes - in Year 73 after [Computing Machinery
-and Intelligence](https://phil415.pbworks.com/f/TuringComputing.pdf). Anno 73 TT.
-
-From [Nature](https://www.nature.com/), 2023-07-23: [Understanding ChatGPT is a bold new challenge for science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
+Turing Test was proposed in 1950. From [Nature](https://www.nature.com/),
+2023-07-23: [Understanding ChatGPT is a bold new challenge for
+science](https://www.nature.com/articles/d41586-023-02366-2.pdf)
 
 > This **lack of robustness** signals a lack of **reliability** in the real world.
 
@@ -62,16 +56,18 @@ for model infra?
 
 ## POLL
 
+* have you written a [markov chain based text generator](https://go.dev/doc/codewalk/markov/) in Go?
 * have you ran a local LLM, yes or no?
-* if so, which models?
+    * (only) about 10% said yes
+* if so, any particular model or tool?
 
 ## OLLAMA
 
 * first appeared in [07/2023](http://web.archive.org/web/20230720133902/https://ollama.ai/) (~18 weeks ago)
 * very inspired by docker, not images, but models
 * built on [llama](https://ai.meta.com/llama/) (meta), [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
-* docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
-* very clean user experience (that many projects lack)
+* docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management; similarly ollama may be a way to organize the ai "model lifecycle"
+* clean developer UX
 
 ### Time-to-chat
 
@@ -135,24 +131,6 @@ The whole [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 > To this end, we first conduct automatic experiments on 45 tasks using various
 > LLMs, including Flan-T5-Large, Vicuna, Llama 2, BLOOM, ChatGPT, and GPT-4.
 
-
-### TODO
-
-* [ ] define a couple of tasks and run them in batch against the API
-    * [ ] go programming haiku collection
-    * [ ] travel destination teaser; for loop over locations
-    * [ ] imaginary travel destination descriptions
-* [ ] create custom prompts, example tasks
-    * [ ] Modelfile
-    *
-* [ ] code assistant in nvim
-    * [ ] custom endpoint for https://github.com/huggingface/llm.nvim/tree/main
-
-Some specific prompts may be:
-
-* [ ] an instructor for a specific programming style (e.g. see elements of programming style)
-
-
 ### Batch Mode
 
 ```
@@ -170,8 +148,54 @@ Some specific prompts may be:
 [GIN-debug] HEAD   /api/tags       --> gith...m/jmo...ma/server.ListModelsHandler (5 handlers)
 ```
 
-* `/api/generate/`
+Specifically `/api/generate/`
 
+### Constraints
+
+* possible to enforce JSON generation
+
+### Customizing models
+
+> weights, configuration, and data in a single package
+
+Using a Modelfile.
+
+```
+FROM llama2
+# sets the temperature to 1 [higher is more creative, lower is more coherent]
+PARAMETER temperature 1
+# sets the context window size to 4096, this controls how many tokens the LLM can use as context to generate the next token
+PARAMETER num_ctx 4096
+
+# sets a custom system prompt to specify the behavior of the chat assistant
+SYSTEM You are Mario from super mario bros, acting as an assistant.
+```
+
+Freeze this as a custom package:
+
+```shell
+$ ollama create llama-mario -f custom/Modelfile.mario
+$ ollama run llama-mario
+```
+
+About 16 parameters to tweak: [Valid Parameters and Values](https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values)
+
+## Task 1: "haiku"
+
+* generate a small volume of Go programming haiku
+
+```
+// haikugen generates
+// JSON output for later eval
+// cannot parallelize
+```
+
+* [haikugen.go](https://github.com/miku/localmodels/blob/main/tasks/haiku/haikugen.go)
+
+## Task 2 "bibliography"
+
+* given unstructured strings, parse the to json
+* [unstructured](https://github.com/miku/localmodels/tree/main/tasks/unstructured)
 
 ## Credits
 
