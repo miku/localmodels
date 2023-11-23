@@ -192,7 +192,7 @@ About 16 parameters to tweak: [Valid Parameters and Values](https://github.com/j
 
 * [haikugen.go](https://github.com/miku/localmodels/blob/main/tasks/haiku/haikugen.go)
 
-## Task 2 "bibliography"
+## Task 2: "bibliography"
 
 * given unstructured strings, parse the to json
 * [unstructured](https://github.com/miku/localmodels/tree/main/tasks/unstructured)
