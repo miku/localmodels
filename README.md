@@ -1,6 +1,6 @@
-# Running local models
+# Testdriving OLLAMA
 
-> 2023-11-21, Martin Czygan <martin.czygan@gmail.com>, [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
+> 2023-11-21, Leipzig Gophers [Meetup #38](#), [Martin Czygan](https://www.linkedin.com/in/martin-czygan-58348842/), [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
 
 Short talk about running local models, using Go tools.
 
@@ -13,9 +13,9 @@ Short talk about running local models, using Go tools.
 
 > I am going to assert that Riley is the first Staff Prompt Engineer hired *anywhere*.
 
-* on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 1-3 years timeline
+* on 2023-02-14 (+9w), I ask a question on how long before we can run things locally at the [Leipzig Python User Group](https://lpug.github.io/) -- personally, I expected 2-5 years timeline
 * on 2023-04-18 (+9w), we discuss C/GO and ggml (ai-on-the-edge) at [Leipzig Gophers #35](https://golangleipzig.space/posts/meetup-35-wrapup/)
-* on 2023-07-20 (+13w), ollama is released (two models), [HN](https://news.ycombinator.com/item?id=36802582)
+* on 2023-07-20 (+13w), [ollama](https://ollama.ai) is released (with two models), [HN](https://news.ycombinator.com/item?id=36802582)
 * on 2023-11-21 (+17w), today, 43 models (each with a couple of tags/versions)
 
 ## Confusion
@@ -58,6 +58,7 @@ for model infra?
 
 * have you written a [markov chain based text generator](https://go.dev/doc/codewalk/markov/) in Go?
 * have you ran a local LLM, yes or no?
+    * (only) about 10% said yes
 * if so, any particular model or tool?
 
 ## OLLAMA
@@ -65,8 +66,8 @@ for model infra?
 * first appeared in [07/2023](http://web.archive.org/web/20230720133902/https://ollama.ai/) (~18 weeks ago)
 * very inspired by docker, not images, but models
 * built on [llama](https://ai.meta.com/llama/) (meta), [GGML](http://ggml.ai/) ai-on-the-edge ecosystem, especially using [GGUF](https://www.reddit.com/r/LocalLLaMA/comments/15triq2/gguf_is_going_to_make_llamacpp_much_better_and/) - a unified image format
-* docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management
-* clean developer ux
+* docker may be considered less a glorified [nsenter](https://man7.org/linux/man-pages/man1/nsenter.1.html), but more (lots of) glue to go from spec to image to process, code lifecycle management; similarly ollama may be a way to organize the ai "model lifecycle"
+* clean developer UX
 
 ### Time-to-chat
 
