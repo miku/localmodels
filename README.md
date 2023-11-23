@@ -1,6 +1,6 @@
 # Testdriving OLLAMA
 
-> 2023-11-21, Leipzig Gophers [Meetup #38](#), [Martin Czygan](https://www.linkedin.com/in/martin-czygan-58348842/), [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
+> 2023-11-21, [Leipzig Gophers](https://golangleipzig.space) [Meetup #38](https://golangleipzig.space/posts/meetup-38-wrapup/), [Martin Czygan](https://www.linkedin.com/in/martin-czygan-58348842/), [L Gopher](https://golangleipzig.space), Open Data Engineer at [IA](https://archive.org)
 
 Short talk about running local models, using Go tools.
 
