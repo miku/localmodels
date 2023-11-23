@@ -72,7 +72,7 @@ for model infra?
 
 From zero to chat in about 5 minutes, on a [power-efficient
 CPU](https://www.intel.com/content/www/us/en/processors/processor-numbers.html).
-Started w/ 2 models, as of 11/2023 hosting 36+ models, a docker-like model.
+Started w/ 2 models, as of 11/2023 hosting 43 models.
 
 ```
 $ git clone git@github.com:jmorganca/ollama.git
