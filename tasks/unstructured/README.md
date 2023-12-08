@@ -33,10 +33,15 @@ $ curl -sL 'localhost:11434/api/generate?format=json' -d '{"model": "mistral", "
 "J. res.: fundam. care. online 2017. abr./jun. 9(2): 309-314"
 ```
 
-Parsing 20 raw refs into json takes about
+Parsing 20 raw refs with [mistral-7b](https://ollama.ai/library/mistral/tags) into json takes over 3min (10s per string) on a [Xeon(R)
+Gold 6326](https://www.cpubenchmark.net/cpu.php?id=4651) CPU (no GPU).
 
 ```
 $ time shuf -n 20 refs.json | python loop.py > refs_parsed.json
+
+real    3m25.585s
+user    0m0.314s
+sys     0m0.103s
 ```
 
 Some example output:
